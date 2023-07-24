@@ -1,0 +1,39 @@
+body {
+    background-color: #0d0a25;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  form {
+    margin: 20px auto;
+    width: 50%;
+    border: 2px solid #dcd0ff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(100% - 22px);
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(100% - 22px);
+    border-radius: 10px;
+  }
+  
+  

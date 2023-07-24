@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recover Money</title>
+    <link rel="stylesheet" href="recover.css">
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+        .error.active {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recover Money</h1>
+    <form id="recover-form" action="submit.php" method="POST">
+        <input type="hidden" name="form-id" value="recover-form">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+        <span class="error" id="first-name-error"></span>
+        <br>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+        <span class="error" id="last-name-error"></span>
+        <br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone-number" name="phone-number" placeholder="Enter your phone number">
+        <span class="error" id="phone-number-error"></span>
+        <br>
+        <label for="E-mail">E-mail:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your last e-mail">
+        <span class="error" id="email-error"></span>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      let form = document.getElementById("recover-form");
+      form.addEventListener("submit", function(event) {
+          let firstName = document.getElementById("first-name").value;
+          let lastName = document.getElementById("last-name").value;
+          let phoneNumber = document.getElementById("phone-number").value;
+          let email = document.getElementById("email").value;
+
+          let errors = {};
+          if (firstName === "") {
+              errors["first-name"] = "Please fill in this field";
+          }
+          if (lastName === "") {
+              errors["last-name"] = "Please fill in this field";
+          }
+          if (phoneNumber === "") {
+              errors["phone-number"] = "Please fill in this field";
+          }
+          if (email === "") {
+              errors["email"] = "Please fill in this field";
+          }
+          let errorElements = document.querySelectorAll(".error");
+errorElements.forEach(function(element) {
+    element.textContent = "";
+    element.classList.remove("active");
+});
+
+          if (Object.keys(errors).length > 0) {
+              event.preventDefault();
+              for (let key in errors) {
+                  let errorElement = document.getElementById(key + "-error");
+                  errorElement.textContent = errors[key];
+                  errorElement.classList.add("active");
+              }
+          }
+      });
+    </script>
+
+</body>
+</html>
