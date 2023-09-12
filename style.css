@@ -688,11 +688,16 @@ form label, form input {
   .button3 {
     margin: 5% auto 5% 22% !important;
     width: 80% !important;
+}  .boss_box h2, .boss_box h3, .boss_box h4 {
+  font-size: 1em;
 }
 
 
   h2, h3, h4 {
     font-size: 14px;
+}
+.boss_box h2, .boss_box h3, .boss_box h4 {
+  font-size: 1em;
 }
 h1{
   font-size: 35px;
@@ -839,6 +844,10 @@ p {
         width :70% ;
         text-align: center;
     }
+    .boss_box h2, .boss_box h3, .boss_box h4 {
+        font-size: 1em;
+    }
+
     .menu {
         position: fixed;
         top: 150px;
