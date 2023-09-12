@@ -839,6 +839,10 @@ p {
         width :70% ;
         text-align: center;
     }
+    .boss_box h2, .boss_box h3, .boss_box h4 {
+        font-size: 1em;
+    }
+
     .menu {
         position: fixed;
         top: 150px;

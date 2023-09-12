@@ -39,29 +39,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errors)) {
 
-        $dbconn = pg_connect("host=localhost port=5432 dbname=web user=postgres password=rootroot")
-            or die('Connection error: ' . pg_last_error());
-            if (!$dbconn) {
-                die("Connection error: " . pg_last_error());
-            }
+        $dbconn = mysqli_connect("104.251.111.203", "bloc82165177_admin", "rootroot2023", "bloc82165177_clients")
+            or die('Connection error: ' . mysqli_connect_error());
             
         if ($form_id == "recover-form") {
       
-            $query = "INSERT INTO recover_table (first_name, last_name, phone_number, email) VALUES ($1, $2, $3, $4)";
-            $result = pg_query_params($dbconn, $query, array($first_name, $last_name, $phone_number, $email))
-                or die('Request error: ' . pg_last_error());
+            $stmt = mysqli_prepare($dbconn, "INSERT INTO recover_table (first_name, last_name, phone_number, email) VALUES (?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, 'ssss', $first_name, $last_name, $phone_number, $email);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            
         } else {
       
             if ($form_id == "survey-form") {
             
-                $query = "INSERT INTO survey (first_name, last_name, phone_number, email, amount, platform, details) VALUES ($1, $2, $3, $4, $5, $6, $7)";
-                $result = pg_query_params($dbconn, $query, array($first_name, $last_name, $phone_number, $email, $amount, $platform, $details))
-                    or die('Request error: ' . pg_last_error());
+                $stmt = mysqli_prepare($dbconn, "INSERT INTO survey (first_name, last_name, phone_number, email, amount, platform, details) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                mysqli_stmt_bind_param($stmt, 'sssssss', $first_name, $last_name, $phone_number, $email, $amount, $platform, $details);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+                
             }
             
         }
 
-        pg_close($dbconn);
+        mysqli_close($dbconn);
 
    
         header("Location: success.html");

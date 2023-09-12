@@ -2,26 +2,25 @@
 session_start();
 
 if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
-
     header('Location: login.php');
     exit;
 }
 
-$dbconn = pg_connect("host=localhost port=5432 dbname=web user=postgres password=rootroot");
+$dbconn = mysqli_connect("104.251.111.203", "bloc82165177_admin", "rootroot2023", "bloc82165177_clients");
+
 
 if (!$dbconn) {
-    die("Connection failed");
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-
-$result1 = pg_query($dbconn, "SELECT * FROM recover_table");
+$result1 = mysqli_query($dbconn, "SELECT * FROM recover_table");
 if (!$result1) {
-    die("An error occurred while retrieving data from recover_table");
+    die("An error occurred while retrieving data from recover_table: " . mysqli_error($dbconn));
 }
 
-$result2 = pg_query($dbconn, "SELECT * FROM survey");
+$result2 = mysqli_query($dbconn, "SELECT * FROM survey");
 if (!$result2) {
-    die("An error occurred while retrieving data from survey");
+    die("An error occurred while retrieving data from survey: " . mysqli_error($dbconn));
 }
 ?>
 
@@ -37,18 +36,14 @@ if (!$result2) {
     <table border="1">
         <tr>
             <?php
-           
-                $i = 0;
-                while ($i < pg_num_fields($result1)) {
-                    $fieldName = pg_field_name($result1, $i);
-                    echo '<th>' . $fieldName . '</th>';
-                    $i++;
+                while ($fieldinfo = mysqli_fetch_field($result1)) {
+                    echo '<th>' . $fieldinfo->name . '</th>';
                 }
             ?>
         </tr>
         <?php
             // Вывод данных таблицы
-            while ($row = pg_fetch_row($result1)) {
+            while ($row = mysqli_fetch_row($result1)) {
                 echo '<tr>';
                 foreach ($row as $data) {
                     echo '<td>' . $data . '</td>';
@@ -62,18 +57,13 @@ if (!$result2) {
     <table border="1">
         <tr>
             <?php
-                
-                $i = 0;
-                while ($i < pg_num_fields($result2)) {
-                    $fieldName = pg_field_name($result2, $i);
-                    echo '<th>' . $fieldName . '</th>';
-                    $i++;
+                while ($fieldinfo = mysqli_fetch_field($result2)) {
+                    echo '<th>' . $fieldinfo->name . '</th>';
                 }
             ?>
         </tr>
         <?php
-            
-            while ($row = pg_fetch_row($result2)) {
+            while ($row = mysqli_fetch_row($result2)) {
                 echo '<tr>';
                 foreach ($row as $data) {
                     echo '<td>' . $data . '</td>';

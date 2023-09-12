@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Recover Money</title>
     <link rel="stylesheet" href="recover.css">
@@ -8,11 +9,17 @@
             color: red;
             display: none;
         }
+
         .error.active {
             display: inline;
         }
     </style>
 </head>
+<div class="logo">
+    <a href="index.html">
+  <img src="logo.png" alt="Логотип">
+</a>
+</div>
 <body>
     <h1>Recover Money</h1>
     <form id="recover-form" action="submit.php" method="POST">
@@ -37,42 +44,45 @@
     </form>
 
     <script>
-      let form = document.getElementById("recover-form");
-      form.addEventListener("submit", function(event) {
-          let firstName = document.getElementById("first-name").value;
-          let lastName = document.getElementById("last-name").value;
-          let phoneNumber = document.getElementById("phone-number").value;
-          let email = document.getElementById("email").value;
+        let form = document.getElementById("recover-form");
+        form.addEventListener("submit", function (event) {
+            let firstName = document.getElementById("first-name").value;
+            let lastName = document.getElementById("last-name").value;
+            let phoneNumber = document.getElementById("phone-number").value;
+            let email = document.getElementById("email").value;
 
-          let errors = {};
-          if (firstName === "") {
-              errors["first-name"] = "Please fill in this field";
-          }
-          if (lastName === "") {
-              errors["last-name"] = "Please fill in this field";
-          }
-          if (phoneNumber === "") {
-              errors["phone-number"] = "Please fill in this field";
-          }
-          if (email === "") {
-              errors["email"] = "Please fill in this field";
-          }
-          let errorElements = document.querySelectorAll(".error");
-errorElements.forEach(function(element) {
-    element.textContent = "";
-    element.classList.remove("active");
-});
+            let errors = {};
+            if (firstName === "") {
+                errors["first-name"] = "Please fill in this field";
+            }
+            if (lastName === "") {
+                errors["last-name"] = "Please fill in this field";
+            }
+            if (phoneNumber === "") {
+                errors["phone-number"] = "Please fill in this field";
+            }
+            if (email === "") {
+                errors["email"] = "Please fill in this field";
+            }
+            let errorElements = document.querySelectorAll(".error");
+            errorElements.forEach(function (element) {
+                element.textContent = "";
+                element.classList.remove("active");
+            });
 
-          if (Object.keys(errors).length > 0) {
-              event.preventDefault();
-              for (let key in errors) {
-                  let errorElement = document.getElementById(key + "-error");
-                  errorElement.textContent = errors[key];
-                  errorElement.classList.add("active");
-              }
-          }
-      });
+            if (Object.keys(errors).length > 0) {
+                event.preventDefault();
+                for (let key in errors) {
+                    let errorElement = document.getElementById(key + "-error");
+                    errorElement.textContent = errors[key];
+                    errorElement.classList.add("active");
+                }
+            }
+        });
     </script>
+<a href="index.html" style="display: inline-block; border: 2px solid white; color: white; padding: 20px 30px; text-decoration: none; position: relative; margin: 20px auto; display: block; text-align: center; width: 200px;">Back</a>
+
 
 </body>
+
 </html>

@@ -1,9 +1,10 @@
 <?php
 session_start();
-$dbconn = pg_connect("host=localhost port=5432 dbname=web user=postgres password=rootroot");
+$dbconn = mysqli_connect("104.251.111.203", "bloc82165177_admin", "rootroot2023", "bloc82165177_clients");
+
 
 if (!$dbconn) {
-    die("Connection failed");
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 
@@ -12,12 +13,22 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Создаем подготовленное выражение
+    $stmt = mysqli_prepare($dbconn, 'SELECT * FROM users WHERE username=?');
+    
+    // Привязываем параметры
+    mysqli_stmt_bind_param($stmt,'s',$username);
+    
+    // Выполняем запрос
+    mysqli_stmt_execute($stmt);
+    
+    // Получаем результаты
+    $result=mysqli_stmt_get_result($stmt);
 
-    $result = pg_query_params($dbconn, 'SELECT * FROM users WHERE username = $1', array($username));
+    if ($result && mysqli_num_rows($result) > 0) {
 
-    if ($result && pg_num_rows($result) > 0) {
-
-        $user = pg_fetch_assoc($result);
+        // Извлекаем данные пользователя
+        $user = mysqli_fetch_assoc($result);
 
    
         if (password_verify($password, $user['password'])) {
@@ -47,7 +58,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <h1>Login</h1>
 
     <?php if (isset($error)): ?>
-        <p><?= $error ?></p>
+        <p><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
     <form method="post">

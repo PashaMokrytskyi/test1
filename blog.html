@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="blog.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+          <img src="logo.png" alt="Логотип">
+        </a>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+       
+          <ul class="menu">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#steps">Steps</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><div class="close-button" onclick="toggleMenu()">X</div></li>
+          </ul>
+          
+        </nav>
+        
+        <script>
+          function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            menu.classList.toggle('open');
+          }
+        </script>
+        
+    </nav>
+    <div class="main-content">
+    <h1>Blockdetective's News Blog</h1>
+    <div class="post">
+        <div class="post-title">Bank of England boss says interest rates close to peak</div>
+        <div class="post-subtitle">Bank of England Governor Andrew Bailey has said interest rates are close to their peak, but that they may still have further to rise.</div>
+        <img class="post-image" src="news1.png" alt="newsph1">
+        <a class="post-details-link" href="https://www.bbc.com/news/business-66733193">More</a>
+    </div>
+    <div class="post">
+        <div class="post-title">American Eagle Outfitters lifts revenue forecast on steady demand</div>
+        <div class="post-subtitle"> American Eagle Outfitters on Wednesday joined rival Abercrombie & Fitch in raising its annual revenue forecast, betting on steady demand for its wide-legged pants, tops and accessories despite still-high inflation.</div>
+        <img class="post-image" src="news2.jpg" alt="newsph2">
+        <a class="post-details-link" href="https://www.reuters.com/business/retail-consumer/american-eagle-outfitters-raises-annual-revenue-forecast-steady-demand-2023-09-06/">More</a>
+    </div>
+    <a href="index.html" id="back-to-top" style="display: inline-block; border: 2px solid white; color: white; padding: 10px 20px; text-decoration: none; position: fixed; bottom: 20px; right: 20px; background-color: #0d0a25;">Back</a>
+</div>
+</body>
+</html>
