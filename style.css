@@ -632,14 +632,75 @@ font-size: 20px;
 font-weight: bold;
 margin-left: 0px;
   }
-
-
+  #modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  #modal > div {
+      width: 80%;
+      max-width: 500px;
+     
+      background-color: #4b0082;
+      border-radius: 10px;
+      border: 2px solid white;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative; 
+    background-color: #0d0a25;;
+  }
+  .modal {
+    display: none; /* Приховано за замовчуванням */
+    position: fixed; /* Залишається на місці */
+    z-index: 1; /* Лежить поверх всього іншого */
+    left: 0;
+    top: 0;
+    width: 100%; /* Повна ширина */
+    height: 100%; /* Повна висота */
+    overflow: auto; /* Дозволяє прокрутку, якщо потрібно */
+    background-color: rgb(0,0,0); /* Чорний фон з прозорістю */
+    background-color: rgba(0,0,0,0.4); /* Також додає прозорість (чорний) */
+  }
+  
+  /* Модальний контент/рамка */
+  .modal-content {
+    background-color: #0d0a25;
+    margin: 15% auto; /* 15% від верху та вирівнювання по центру */
+    border: 1px solid #888;
+    border-color: #b19cd9; /* Світлофіолетовий колір обводки */
+    width: 30%; /* Може бути будь-якою шириною */
+    height:auto; /* Квадратне модальне вікно */
+    border-radius:12px; /* Закруглення країв */
+  }
+  
+  /* Кнопки модального вікна */
+  .modal-content button {
+      display:block;
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      color:white;
+      background:#b19cd9;
+      border:none;
+      text-align:center;
+      height:auto;
+      margin-bottom:10px;
+  }
       
 
 
 
 @media only screen and (max-width: 600px) {
   @media screen and (max-width: 600px) {
+    
     #form-container {
         /* Other styles */
         transition: opacity 0.5s ease-in-out;
@@ -652,9 +713,14 @@ margin-left: 0px;
      height: auto;
     }
 }
+.modal-content {
+  width: 90%;
+  margin: 20% auto;
+  font-size: 14px;
+}
 .start_content{
   padding-top: 10px;
-  
+  height: 100%;
 }
   .button1 {
     display: none;
@@ -937,6 +1003,7 @@ p {
             margin-right:auto;
             
             }  
-        
-
+           
+         
           }
+        

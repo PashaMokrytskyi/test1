@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Block Hunters</title>
-    <link rel="stylesheet" type="text/css" href="stl.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -29,27 +29,6 @@
 </head>
 
 <body>
-    <!-- <div id="myModal" class="modal"> -->
-
-      
-        <!-- <div class="modal-content">
-          <p>Please, choose language:</p>
-          <button onclick="closeModal()">English</button>
-          <button onclick="location.href='ru-index.html'">Русский</button>
-        </div>
-        <script>
-            // Отримання модального вікна
-            var modal = document.getElementById("myModal");
-            
-            // Показати модальне вікно при завантаженні сторінки
-            window.onload = function() {
-              modal.style.display = "block";
-            }
-            function closeModal() {
-  modal.style.display = "none";
-}
-            </script>
-      </div> -->
     <nav>
         <div class="logo">
             <a href="index.html">
@@ -64,9 +43,9 @@
         </div>
 
         <ul class="menu">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#steps">Steps</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#steps">Этапы</a></li>
+            <li><a href="blog.html">Блог</a></li>
             <li>
                 <div class="close-button" onclick="toggleMenu()">X</div>
             </li>
@@ -84,23 +63,24 @@
         <div class="start_content ">
             <div id="link">
             </div>
-            <h1>We specialize in <span class="highlight">recovering</span> stolen money.</h1>
-            <h3>*We handle cases with losses starting from $500.</h3>
-            <p1>Want to <span class="highlight">reclaim</span> your money? Leave an application."</p1>
-            <button id="toggle-form" class="button1">Recover money</button>
+            <h1>Мы специализируемся на <span class="highlight">возврате</span> украденных денег.</h1>
+            <h3>*Мы работаем с случаями потерь от 500$.</h3>
+            <p1>Хотите <span class="highlight">вернуть</span> свои деньги? Оставьте заявку</p1>
+            <button id="toggle-form" class="button1">Вернуть деньги</button>
             <div id="form-container" style="display: none;">
-                <form id="recover-form" method="POST" action="submit.php" accept-charset="UTF-8">
+                <form id="recover-form" method="POST" action="submit.php">
                     <input type="hidden" name="form-id" value="recover-form">
-                    <label for="first-name">First Name:</label>
-                    <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+                    <label for="first-name">Имя:</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Введите своё имя">
                     <span class="error" id="first-name-error"></span>
 
-                    <label for="last-name">Last Name:</label>
-                    <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+                    <label for="last-name">Фамилия:</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Введите свою фамилию">
                     <span class="error" id="last-name-error"></span>
 
-                    <label for="area-code">Country Code:</label>
+                    <label for="area-code">Код страны:</label>
                     <select id="area-code" name="area-code">
+                        <option value="+7">🇷🇺 +7</option>
                         <option value="+1">🇨🇦 +1</option>
                         <option value="+353">🇮🇪 +353</option>
                         <option value="+31">🇳🇱 +31</option>
@@ -109,22 +89,23 @@
                         <option value="+44">🇬🇧 +44</option>
                         <option value="+358">🇫🇮 +358</option>
                         <option value="+45">🇩🇰 +45</option>
+                       
                     </select>
 
-                    <label for="phone-number">Phone Number:</label>
-                    <input type="text" id="phone-number" name="phone-number" placeholder="Enter your phone number">
+                    <label for="phone-number">Номер телефона::</label>
+                    <input type="text" id="phone-number" name="phone-number" placeholder="Введите свой номер телефона">
                     <span class="error" id="phone-number-error"></span>
 
-                    <label for="E-mail">E-mail:</label>
-                    <input type="text" id="email" name="email" placeholder="Enter your last e-mail">
+                    <label for="E-mail">Электронная почта:</label>
+                    <input type="text" id="email" name="email" placeholder="Введите свою электронную почту">
                     <span class="error" id="email-error"></span>
                     <br>
                     <input type="submit" id="submit-button" value="Submit">
-                    <p style='color: white; font-size: 14px;'>By clicking the "Submit" button you agree to the <a
+                    <p style='color: white; font-size: 14px;'>Нажимая на кнопку "Подтвердить", вы соглашаетесь с  <a
                             href='terms_of_use.html'
-                            style='color: white;font-size: 14px;text-decoration: underline;'>Terms of Use</a> and <a
+                            style='color: white;font-size: 14px;text-decoration: underline;'>Условиями пользования</a> и <a
                             href='user_agreement.html'
-                            style='color: white; font-size: 14px;text-decoration: underline;'>User Agreement</a></p>
+                            style='color: white; font-size: 14px;text-decoration: underline;'>Пользовательским соглашением</a></p>
                 </form>
                 <script>
                     const validAreaCodes = [
@@ -175,22 +156,22 @@
                         let areaCode = document.getElementById("area-code").value;
                         let phoneNumber = document.getElementById("phone-number").value;
                         let email = document.getElementById("email").value;
-                   
+
                         let errors = {};
                         if (firstName === "") {
-                            errors["first-name"] = "Please fill in this field";
+                            errors["first-name"] = "Пожалуйста, заполните это поле";
                         }
                         if (lastName === "") {
-                            errors["last-name"] = "Please fill in this field";
+                            errors["last-name"] = "Пожалуйста, заполните это поле";
                         }
                         if (areaCode === "") { // проверка кода области
-                            errors["area-code"] = "Please fill in this field";
+                            errors["area-code"] = "Пожалуйста, заполните это поле";
                         }
                         if (phoneNumber === "") {
-                            errors["phone-number"] = "Please fill in this field";
+                            errors["phone-number"] = "Пожалуйста, заполните это поле";
                         }
                         if (email === "") {
-                            errors["email"] = "Please fill in this field";
+                            errors["email"] = "Пожалуйста, заполните это поле";
                         }
 
                         let errorElements = document.querySelectorAll(".error");
@@ -214,7 +195,7 @@
                                 if (xhr.status === 200) {
                                     fbq('track', 'Lead');
                                     console.log('Form filled out and Facebook Pixel Lead event tracked');
-                                    alert('Your data has been successfully sent for processing! Expect to be contacted as soon as possible!');
+                                    alert('Ваши данные успешно отправлены на обработку! Ожидайте обратной связи в ближайшее время!');
                                     form.reset();
                                 } else {
                                     console.log('Error submitting form');
@@ -225,15 +206,15 @@
                     });
 
 
-                    // function updateAgreeButton() {
-                    //     if (privacyCheckbox.checked && termsCheckbox.checked) {
-                    //         agreeButton.style.display = 'block';
-                    //         agreeButton.disabled = false;
-                    //     } else {
-                    //         agreeButton.style.display = 'none';
-                    //         agreeButton.disabled = true;
-                    //     }
-                    // }
+                    function updateAgreeButton() {
+                        if (privacyCheckbox.checked && termsCheckbox.checked) {
+                            agreeButton.style.display = 'block';
+                            agreeButton.disabled = false;
+                        } else {
+                            agreeButton.style.display = 'none';
+                            agreeButton.disabled = true;
+                        }
+                    }
 
 
 
@@ -271,19 +252,19 @@
         </div>
         <img src="card.png" alt="Image" class="image" Id="card_image">
     </div>
-    <p class="centered-text">Achievements</p>
+    <p class="centered-text">Наши достижения</p>
     <div class="container">
         <div class="box">
             <img src="wallet.png" alt="Image 1" class="image">
-            <h2>More than</h2>
+            <h2>Более чем</h2>
             <h3> $510,000</h3>
-            <h4>has already been recovered by our clients.</h4>
+            <h4>мы уже вернули нашим клиентам.</h4>
         </div>
         <div class="box">
             <img src="patient.png" alt="Image 2" class="image">
-            <h2>Over</h2>
+            <h2>Более</h2>
             <h3>4,500</h3>
-            <h4>clients have successfully received their money back </h4>
+            <h4>клиентов успешно получили свои деньги назад. </h4>
         </div>
         <div class="box">
             <img src="money-bag.png" alt="Image 3" class="image">
@@ -295,70 +276,68 @@
                         }
                     }
                 </style>
-                <span id="commission">Commission</span>
+                <span id="commission">Комиссия</span>
             </h2>
 
             <h3>5%< </h3>
-                    <h4>The cost is calculated based on the amount you lost.</h4>
+                    <h4>Стоимость основывается на потерянной сумме.</h4>
         </div>
     </div>
     <div id="about"></div>
-    <p class="centered-text">About the Company</p>
-    <h3>We understand firsthand what it means to lose all your money. In this era of new technologies, becoming a victim
-        of scammers can happen unexpectedly, but the consequences of these losses can be much scarier than just the
-        financial aspect. We cannot return the time and nerves lost due to stress, but our methods can help you recover
-        your money with an 80% success rate, within a period ranging from one week to two months.
+    <p class="centered-text">О компании.</p>
+    <h3>Мы не по наслышке знаем, что значит потерять все свои деньги. В эпоху современных технологий стать жертвой мошенников можно очень неожиданно,
+        однако последствия этих потерь могут быть гораздо страшнее, чем  просто финансовые трудности. Мы не можем вернуть вам потерянные изза стресса нервы и время,
+        однако наши методы помогут вам вернуть свои деньги с 80% вероятностью успехи в теченни от одной недели до двух месяцев.
     </h3>
     <div class="purple-bar"></div>
-    <h3>Our team consists of professionals who have helped our clients reclaim hundreds of thousands of dollars. Each of
-        our employees possesses unique expertise in recovering lost funds for those who have fallen victim to fraud. For
-        over five years, we have been assisting clients worldwide.
+    <h3>Наша команда состоит из профессионалов, которые уже помогли нашими клиентам вернуть сотни тысяч долларов. Каждый из наших сотрудникво обладает уникальными
+        способностями в восстановлении средств тех, кто стал жертвой мошенничества. Более пяти лет мы помогаем клиентам по всему миру
     </h3>
     <div class="purple-bar"></div>
-    <h3>Testimonials about our work and the portfolio of our specialists are presented below. However, if you have any
-        additional questions, please feel free to contact us via phone or any messenger convenient for you. We are open
-        to our clients and always delighted to share details of interest to you.
+    <h3>Отзывы о нашей работе и портфолие наших специалистов можно представлены ниже. Однако, если у вас есть какие-либо дополнительные вопросы, 
+        не стесняйтесь связаться с нами по телефону или любому удобному для вас мессенджеру.
+         Мы открыты для наших клиентов и всегда рады поделиться деталями, которые вас интересуют.
     </h3>
     <div class="purple-bar"></div>
-    <h3>Remember, the sooner we begin our work, the sooner you can recover your money.</h3>
+    <h3>Помните, чем раньше мы начнем нашу работу, тем раньше вы сможете вернуть ваши деньги..</h3>
     <div class="purple-bar"></div>
     <div class="section">
         <img src="boss.png" alt="Your Image" class="new_image">
         <div class="boss_box">
-            <h2>David Clark</h2>
-            <h3>CEO</h3>
-            <h4>"By reaching out to our company, you are taking the right step. Do you want to reclaim your money as
-                quickly as possible? Do you wish to have real professionals handle the matter of your funds' recovery?
-                Then we eagerly await your inquiry, and I am confident that we will assist you."</h4>
+            <h2>Дэвид Кларк</h2>
+            <h3>Исполнительный директор</h3>
+            <h4>"Обратившись в нашу компанию, вы делаете правильный шаг. Хотите как можно скорее вернуть свои деньги? 
+                Хотите, чтобы вопросом возврата ваших средств занимались настоящие профессионалы?
+                 Тогда мы с нетерпением ждем вашего обращения, и я уверен, что мы сможем помочь вам."</h4>
         </div>
     </div>
     <div class="purple-bar"></div>
 
-    <p class="centered-text">In this situations, Block Hunters can assist you: </p>
+    <p class="centered-text">Block Hunters могут помочь вам в следующих ситуациях: </p>
     <div class="purple-bar"></div>
     <div class="new_container">
-        <div class="new-box">The platform on which you conducted operations has ceased functioning.</div>
-        <div class="new-box">The broker is not processing withdrawals and is asking for additional payments.</div>
-        <div class="new-box">The broker has taken your money and disappeared.</div>
+        <div class="new-box">Платформа, на которой вы проводили операции, прекратила свою работу.</div>
+        <div class="new-box">Брокер не обрабатывает вывод средств и требует дополнительные платежи.</div>
+        <div class="new-box">Брокер забрал ваши деньги и исчез.</div>
     </div>
     </section>
-    <h1 style="color: white; text-align: center;">If you have faced any of these scenarios, our team at Block Hunters is
-        here to help.</h1>
+    <h1 style="color: white; text-align: center;">IЕсли вы столкнулись с любым из этих сценариев, наша команда Block Hunters здесь, чтобы помочь.</h1>
     <div class="purple-bar"></div>
     <img src="help.png" alt="help" class="centered-image">
     <div class="container">
         <div class="new_column">
-            <h3>Indeed, Block Hunters assists in a wide range of cases beyond the examples mentioned. Our expertise
-                covers various scenarios where you may have experienced financial losses or become a victim of scams.
-                Whether it involves fraudulent investments, unauthorized transactions, or other deceptive practices, our
-                team of professionals is well-equipped to help you reclaim your funds.</h3>
+            <h3>Наша команда помагает в широком спектре случаев, помимо вышеупомянутых примеров.
+                 Наша экспертиза охватывает различные сценарии, когда вы могли потерпеть финансовые потери или стать жертвой мошенничества. 
+                 Будь то мошеннические инвестиции, несанкционированные транзакции или другие обманные практики, наша команда профессионалов хорошо подготовлена, 
+                 чтобы помочь вам вернуть свои средства.</h3>
         </div>
         <div class="new_column">
-            <h3>We understand the complexities of financial fraud and have a track record of assisting clients in
-                diverse situations. Rest assured that we are committed to providing reliable and effective solutions to
-                recover your money. If you find yourself in any financial distress, don't hesitate to contact Block
-                Hunters. We are here to support you and assist in getting your money back.</h3>
+            <h3>Мы понимаем сложности финансового мошенничества и имеем опыт помощи клиентам в разнообразных ситуациях.
+                 Будьте уверены, что мы стремимся предоставить надежные и эффективные решения для возврата ваших денег.
+                  Если вы оказались в любой финансовой беде, не стесняйтесь обращаться в Block Hunters.
+                   Мы здесь, чтобы поддержать вас и помочь вернуть ваши деньги.</h3>
         </div>
+
     </div>
     <img src="payment.png" alt="help" class="centered-image">
     <h2 style="color: white; text-align: center; margin: 30px; font-size: 40px;line-height: 1;">
@@ -372,14 +351,12 @@
                 }
             }
         </style>
-        <span id="payment-system-text">Payment system forwards the received complaint to the bank-acquirer, where all
-            circumstances are examined and investigated. In certain cases, there may be legitimate grounds for funds
-            deduction. For example, if airplane tickets were sold under a non-refundable fare, a refund for these
-            tickets won't be possible. If it is determined that the service provider unlawfully charged your card or
-            bank account, their bank will promptly initiate a refund transfer to your bank. Afterward, the funds are
-            credited to your account accordingly. If not, the matter will be reviewed by the investment court</span>
+        <span id="payment-system-text">Платежная система пересылает полученную жалобу в банк-эквайер,
+             где все обстоятельства рассматриваются и расследуются. В некоторых случаях могут быть законные основания для списания средств. 
+             Например, если авиабилеты были проданы по невозвратному тарифу, возврат за эти билеты не будет возможен.
+              Если установлено, что поставщик услуг незаконно списал с вашей карты или банковского счета, его банк незамедлительно инициирует возврат на ваш банк.
+               После этого средства зачисляются на ваш счет соответствующим образом. Если нет, дело будет рассмотрено инвестиционным судом</span>
     </h2>
-
     <br><br><br>
     <img src="warning.png" alt="help" class="centered-image">
     <h1 style="color: white; text-align: center; margin: 30px; font-size: 64px;line-height: 1;">
@@ -391,26 +368,26 @@
                 }
             }
         </style>
-        <span id="not-assist-text">However, there are cases where we may not be able to assist:</span>
+        <span id="not-assist-text">Однако, есть случаи, в которых мы не можем помочь:</span>
     </h1>
 
     <div class="container">
         <div class="box">
             <img src="cash.png" alt="Image 1" class="image">
 
-            <h3>You made the payment in cash.</h3>
+            <h3>Вы совершили платеж наличными.</h3>
 
         </div>
         <div class="box">
             <img src="time.png" alt="Image 2" class="image">
 
-            <h3>More than 5 years have passed since the transaction.</h3>
+            <h3>С момента транзакции прошло более 5 лет.</h3>
 
         </div>
         <div class="box">
             <img src="damage.png" alt="Image 3" class="image">
 
-            <h3>The amount of damage is less than $1000. </h3>
+            <h3>Ущерб составляет менее 500 долларов$. </h3>
 
         </div>
     </div>
@@ -423,39 +400,37 @@
                 }
             }
         </style>
-        <span id="reach-out-text">In such situations, we regret that we won't be able to provide our services for
-            recovering the funds. If you have any other inquiries or concerns, please don't hesitate to reach out to us,
-            and we will be happy to assist you to the best of our ability.</span>
+        <span id="reach-out-text">В таких ситуациях мы сожалеем, что не сможем предоставить наши услуги по возврату средств. 
+            Если у вас есть какие-либо другие запросы или вопросы, пожалуйста, не стесняйтесь обращаться к нам, 
+            и мы будем рады помочь вам по максимуму.</span>
     </h2>
     <br><br><br>
-    <p style="text-align: center;">The Refund Process:</p>
+    <p style="text-align: center;">Процесс возврата средств:</p>
     <div class="container">
         <div class="box">
             <img src="analyst.png" alt="Image 1" class="image">
 
-            <h3 class="big_text"> Initial Consultation</h3>
-            <h4> We will conduct an initial consultation with you to understand the details of your case thoroughly. By
-                analyzing your situation, we will determine the most probable course of action for the refund.</h4>
+            <h3 class="big_text">Первоначальная консультация</h3>
+            <h4> Мы проведем первоначальную консультацию с вами, чтобы тщательно разобраться в деталях вашего дела.
+                 Анализируя вашу ситуацию, мы определим наиболее вероятный план действий для возврата.</h4>
         </div>
         <div class="box">
             <img src="docmunent.png" alt="Image 2" class="image">
 
-            <h3 class="big_text">Document Preparation</h3>
-            <h4>Our team will handle all the necessary paperwork required for the refund process. This includes
-                submitting requests to financial regulators, payment systems, and relevant legal institutions. </h4>
+            <h3 class="big_text">Подготовка документов</h3>
+            <h4>Наша команда займется всей необходимой бумажной работой, требуемой для процесса возврата.
+                 Это включает подачу запросов в финансовые регуляторы, платежные системы и соответствующие юридические учреждения. </h4>
         </div>
         <div class="box">
             <img src="approve.png" alt="Image 3" class="image">
 
-            <h3 class="big_text">Approval and Recommendations </h3>
-            <h4>After submitting the required documentation, we will seek approval for the refund transaction. Upon
-                receiving the necessary approvals, we will provide you with recommendations on the most optimal way to
-                receive your funds.</h4>
+            <h3 class="big_text">Утверждение и рекомендации </h3>
+            <h4>После представления необходимой документации мы будем искать утверждение для транзакции по возврату. 
+                Получив необходимые разрешения, мы предоставим вам рекомендации о наиболее оптимальном способе получения ваших средств.</h4>
         </div>
     </div>
     <div class="button-container">
-        <button id="toggle-form-2-mobile" class="button2" onclick="window.location.href='#link'">Get a
-            consultation</button>
+        <button id="toggle-form-2-mobile" class="button2" onclick="window.location.href='#link'">Получить консультацию</button>
     </div>
     </div>
     <div class="button-container">
@@ -481,7 +456,7 @@
             <input type="text" id="email-2" name="email" placeholder="Enter your last e-mail">
             <span class="error" id="email-error-2"></span>
             <br>
-            <input type="submit" id="submit-button-2" value="Submit">
+            <input type="submit" id="submit-button-2" value="Подтвердить">
             <p style='color: white; font-size: 14px;'>By clicking the "Submit" button you agree to the <a
                     href='terms_of_use.html' style='color: white;font-size: 14px;text-decoration: underline;'>Terms of
                     Use</a> and <a href='user_agreement.html'
@@ -550,22 +525,18 @@
     </div>
 
  
-    <h3>Throughout the process, our team will be dedicated to assisting you in every step of the way. We understand the
-        importance of recovering your money, and we will work diligently to achieve the best possible outcome for you.
-        If you have any questions or concerns during the process, please do not hesitate to reach out to us, and we will
-        be glad to provide further assistance.</h3>
+    <h3>На протяжении всего процесса наша команда будет посвящена помощи вам на каждом шагу.
+         Мы понимаем важность возврата ваших денег, и мы будем работать усердно, чтобы достичь для вас наилучшего возможного результата. 
+         Если у вас возникнут вопросы или опасения во время процесса, пожалуйста, не стесняйтесь обращаться к нам, и мы будем рады предоставить дополнительную помощь.</h3>
     <a href="#" id="back-to-top"
-        style="display: inline-block; border: 2px solid white; color: white; padding: 10px 20px; text-decoration: none; position: fixed; bottom: 20px; right: 20px; background-color: #0d0a25;">UP
+        style="display: inline-block; border: 2px solid white; color: white; padding: 10px 20px; text-decoration: none; position: fixed; bottom: 20px; right: 20px; background-color: #0d0a25;">Вверх
         ↑</a>
     <footer>
-        <h2 style="text-align: center; font-size: 28px;">Contacts</h2>
-        <ul>
-            <li class="footer-item" style="font-size: 20px;  margin-right: 20px;">Phone: +447801156166</li>
-            <li class="footer-item" style="font-size: 20px;  margin-right: 20px;">Email: info@blockdetectives.com</li>
-            <li class="footer-item" style="font-size: 20px; margin-right: 20px;">Address: 1 Thomas More square London
-                E1W 1YN, United Kingdom</li>
-        </ul>
-        <p style="font-size: 26px;">© 2023 Block Detectives LLC</p>
+        <h4>ООО "ЮРИДИЧЕСКОЕ БЮРО "КОНСУЛ ГРУПП" образована в 2022 году для вида деятельности - Деятельность в области права. Компания работает 1 год на данном рынке. Руководителем является: Якубов Аллан Вячеславович (ИНН 773388360576). Реквизиты организации ИНН 7733378950, ОГРН 1227700011220. тел. +79895214711 (только для юр лиц) Если вы физ лицо - оставьте заявку и мы с вами свяжемся! 
+            ОКПО 49862836, зарегистрировано 18.01.2022 находится по адресу 125364, г. Москва, вн.тер.г. Муниципальный Округ Южное Тушино, ул Свободы, д. 50, помещ. 6. Статус: Действующее с 18.01.2022. 
+            Компания работает 1 год и 4 месяца, с 18 января 2022 по настоящее время. Основной вид деятельности ООО "ЮРИДИЧЕСКОЕ БЮРО "КОНСУЛ ГРУПП" - Деятельность в области права. 
+            Состоит на учете в налоговом органе Инспекция Федеральной налоговой службы № 33 по г.Москве с 18 января 2022 г., присвоен КПП 773301001. Регистрационный номер ПФР 087902025840, ФСС 772009326077201. 
+            konsul-grup@proton.me</h4>
     </footer>
     <script>
         // Получаем кнопку
